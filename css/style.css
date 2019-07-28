@@ -1,0 +1,77 @@
+
+
+        a
+        {
+            text-decoration: none;
+            color:rgb(0, 0, 0);
+        }
+        
+        body
+        {
+            margin: 0;
+            background-color: rgba(205, 209, 185, 0.938);
+            
+        }
+        .flex-container
+        {
+            display: flex;
+            position: relative;
+            flex-direction: row;
+            background-color: rgb(115, 190, 159);
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .menu
+        {
+            width: 280px;
+            font-size: 30px;
+            text-align: center;
+        }
+        .menu:hover
+        {
+            background-color:goldenrod;
+        }
+
+
+        #intro
+        {
+            margin: auto;
+            width: 50%;
+            border: 3px solid green;
+            padding: 10px;
+            margin-top: 50px;
+            overflow: auto;
+            background-color: rgb(234, 238, 241);
+        }
+        #education:hover .dropdown-content
+        {
+            display: block;
+            display: flex;
+            flex-direction: column;
+            background-color: rgb(115, 190, 159);
+            opacity: 0.85;
+            width: 280px;
+            
+        }
+        .dropdown-content
+        {
+            display: none;
+            position: absolute;
+        }
+        .drop:hover
+        {
+            background-color:goldenrod;
+        }
+        #myImage
+        {
+            height: 300px;
+            width: 180px;
+            float: left;
+            margin-right: 5px;
+            border: 1px black solid; 
+        }
+        #quotes
+        {
+            background-color: rgb(234, 238, 241);
+        }
+        

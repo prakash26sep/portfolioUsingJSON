@@ -1,0 +1,99 @@
+{
+    
+   "person": 
+    [
+        {
+             "introduction" :
+             { 
+                "name"  : "Bill Gates",
+                "about" : "Entrepreneur and businessman Bill Gates (born October 28, 1955) and his partner Paul Allen founded and built the world's largest software business, Microsoft, through technological innovation, keen business strategy and aggressive business tactics. In the process, Gates became one of the richest men in the world. In February 2014, Gates announced that he was stepping down as Microsoft's chairman to focus on charitable work at his foundation, the Bill and Melinda Gates Foundation.",
+                "quote" : "\"Don’t compare yourself with anyone in this world…if you do so, you are insulting yourself\"",
+                "image" : "images/bill/billGates.jfif"
+            },
+
+             "education" :
+            {
+                "uniQualification" : ["Drop out of Harvard University at 1973.", "Law degree of Harvard University at 2007."],
+                "twelfthQualification" : ["Completed 12th with 98% in 2013", "With science and maths."],
+                "tenthQualification" : ["Completed 10th with 9.8 CGPA in 2011"],
+                "uniImage" : "images/bill/harvard.png",
+                "tenthImage" : "images/bill/cbse.jpg",
+                "twelfthImage" : "images/bill/cbse.jpg"
+            },
+
+            "experience": 
+            {
+                "workimage" : "images/bill/microsoft.jpg",
+                "works" : ["Worked as CEO of Microsoft from 1975-2014", "Working full-time on philanthropy"]
+            },
+
+            "contact" :
+
+            ["Mail to : billgates@outlook.com", "Contact Number: +01 23412341"]
+
+        },
+
+        {
+            "introduction" :
+            { 
+               "name"  : "Satya Nadela",
+               "about" : "Satya Narayana Nadella (/nəˈdɛlə/; born 19 August 1967) is an American business executive from India. He currently serves as the Chief Executive Officer (CEO) of Microsoft, succeeding Steve Ballmer in 2014. Before becoming chief executive, he was Executive Vice President of Microsoft's Cloud and Enterprise Group, responsible for building and running the company's computing platforms.",
+               "quote" : "Information technology is at the core of how you do your business and how your business model itself evolves.",
+               "image" : "images/satya/satyanadela.jpg"
+           },
+
+            "education" :
+           {
+            "uniQualification" : ["Studied from Manipal Institute.", "Completed computer Science degree."],
+            "twelfthQualification" : ["Completed 12th with 98% in 2013", "With science and maths."],
+            "tenthQualification" : ["Completed 10th with 9.8 CGPA in 2011"],
+            "uniImage" : "images/satya/manipal.jpg",
+            "tenthImage" : "images/satya/cbse.jpg",
+            "twelfthImage" : "images/satya/cbse.jpg" 
+           },
+           "experience": 
+           {
+               "workimage" : "images/satya/microsoft.jpg",
+               "works" : ["Working as CEO of Microsoft since 2014", "Working as architect of microsoft as well"]
+           },
+
+           "contact" :
+
+           ["Mail to : satyanadela@outlook.com", "Contact Number: +01 23412341"]
+
+       },
+
+       {
+        "introduction" :
+        { 
+           "name"  : "Prakash Sain",
+           "about" : "Prakash Sain (/Pra' k ash/; born 26 September 1995) is an Software engineer from India. He currently serves as the Software developer (SD) of NTT DATA, after completing graduation. Before becoming Software engineer, he worked independently on php projects, including some feedbacks, and diary project.",
+           "quote" : "Information technology is at the core of how you do your business and how your business model itself evolves.",
+           "image" : "images/prakash/prakashsain.png"
+       },
+
+        "education" :
+       {
+        "uniQualification" : ["Studied from SRM University.", "Software engineering with 8.2 CGPA."],
+        "twelfthQualification" : ["Completed 12th with 78% in 2013", "With science and maths."],
+        "tenthQualification" : ["Completed 10th with 7.8 CGPA in 2011"],
+        "uniImage" : "images/prakash/srm.png",
+        "tenthImage" : "images/prakash/cbse.jpg",
+        "twelfthImage" : "images/prakash/cbse.jpg" 
+       },
+       "experience": 
+       {
+           "workimage" : "images/prakash/nttdata.jfif",
+           "works" : ["Working as Software engineering since 2019", "Worked as intern at Porsche automobiles( dubai)"]
+       },
+
+       "contact" :
+
+       ["Mail to : prakash.sain@nttdata.com", "Contact Number: +91 9087859075"]
+
+   }
+
+
+    ]
+    
+}

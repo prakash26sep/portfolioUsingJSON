@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Portfolio</title>
+
+    <!--To link css to this html page-->
+    <link rel="stylesheet" href="css/style.css">
+
+    
+</head>
+
+<body>
+
+    <header>
+
+        <div style="font-size: 40px;  color:rgb(114, 90, 31)" class="flex-container">My Portfolio<span style="float: right; margin-left: 950px; padding-bottom:2px;"><button style="width: 100px; height: 40px; " onclick="searchBox()">Search</button></span></div>
+        <hr/>
+        
+        <div class="flex-container">
+           
+                <div style="background-color:goldenrod;" class="menu"><a id="mainPortfolio" >Introduction</a></div>
+                <div id="education" class="menu">Education
+                    
+                    <div class="dropdown-content flex-dropdown">
+                            <div class="drop"><a id="university">University</a></div>
+                            <div class="drop"><a id="twelfth">12th</a></div>
+                            <div class="drop"><a id="tenth">10th</a></div>
+                    </div>
+                    
+                </div>
+                <div class="menu"><a id="experience">Experience</a></div>
+                <div class="menu"><a id="contact">Contact</a></div>
+            
+        </div>
+
+    </header>
+
+
+    <section>
+
+
+        <div style="margin: 20px 0 20px 0; font-size: 36px">
+            <h2 id="namejson" style="text-align: center;"></h2>
+        </div>
+
+        <div id="intro">
+            <img id="myImage"/>
+            <p id="introjson" style="text-align: justify; font-size: 20px;"></p>
+        </div>
+
+        <div id="quotes" style="margin: 0 10px 0 10px; border: 2px solid rgb(158, 77, 77); border-radius: 10px; text-align: center; margin-top: 30px;">
+            <h2 id="quotejson"><span style="font-size: 15px">Favourite Quote</span><br/></h2>
+        </div>
+
+    </section>
+
+    
+
+    <footer>
+    
+            <div class="flex-container" style="position: fixed; bottom: 0; width: 100%">
+                    <p>Visit me @ www.prakashsolutions.com</p>
+            </div>
+
+    </footer>
+
+</body>
+
+
+</html>
+
+<script>
+        var personalityIndex;
+
+          var xhttp = new XMLHttpRequest();
+          xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) 
+            {
+        
+                var portfolio= JSON.parse(this.responseText);
+
+               
+                //Fetching the value to use in JSON Array from URL
+                const urlParams = new URLSearchParams(window.location.search);
+                const myParam = urlParams.get('value');
+
+                 //Change the Index of array to change the person
+                var person= portfolio.person[myParam];
+
+                //Changing the content of the file using the JSON document------->
+
+                //INTRODUCTION PAGE
+                document.getElementById("introjson").innerHTML=   person.introduction.about;
+                document.getElementById("namejson").innerHTML =   person.introduction.name;
+                document.getElementById("quotejson").innerHTML += person.introduction.quote;
+
+                //EDUCATION PAGE
+                document.getElementById("myImage").src = person.introduction.image;
+
+                //Changing the URLS for every page according to the search
+                document.getElementById("mainPortfolio").href= "mainPortfolio.html?value=" +myParam;
+                document.getElementById("university").href= "university.html?value=" +myParam;
+                document.getElementById("twelfth").href= "twelfth.html?value=" +myParam;
+                document.getElementById("tenth").href= "tenth.html?value=" +myParam;
+                document.getElementById("experience").href= "experience.html?value=" +myParam;
+                document.getElementById("contact").href= "contact.html?value=" +myParam;
+
+            }
+          };
+          xhttp.open("GET", "portfolioData.json", true);
+          xhttp.send();
+
+          function searchBox()
+          {
+            window.location.href = "searchPortfolio.html";
+          }
+
+</script>

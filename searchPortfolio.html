@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Portfolio</title>
+
+    <!--To link css to this html page-->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!--To link javascript code to the html page-->
+	<!--<script src="js/searchingScript.js"></script>-->
+    
+</head>
+
+<body>
+
+    <header>
+
+        <div style="font-size: 40px; color:rgb(114, 90, 31)" class="flex-container"><span style="float: left; ">My Portfolio</span></div>
+        <hr/>
+        
+    </header>
+
+
+    <section>
+
+        <div style="margin: 20px 0 20px 0; font-size: 36px">
+            <h2 style="text-align: center;">Portfolio Search Portal</h2>
+        </div>
+
+        <div id="intro" style="text-align: center;">
+            <div style="padding:80px 230px 100px 230px;">
+            <table>
+                <tr><td>Person Name: </td><td><input type="text" name="personality" id="personality"></input></td></tr>
+                 <tr><td> </td><td><button  id="search" onclick="searchPersonality()">Search</button></td></tr>
+            </table>
+            </div>
+        </div>
+
+        <div style="margin: 20px 0 20px 0; font-size: 30px">
+            <h3 id="notFound" style="text-align: center; display:none; color:red;">Person Not found!</h3>
+        </div>
+
+    </section>
+
+    
+    <footer>
+    
+            <div class="flex-container" style="position: fixed; bottom: 0; width: 100%">
+                    <p>Visit me @ www.prakashsolutions.com</p>
+            </div>
+
+    </footer>
+
+</body>
+
+</html>
+
+<script>
+
+var personalityIndex;
+var vall=0;
+
+var elem = document.getElementById("personality");
+elem.onkeyup = function(e){
+
+    var personalityIndex;
+    var vall=0;
+
+    if(e.keyCode == 13){
+       searchPersonality();
+    }
+}
+
+function searchPersonality()
+{
+      var xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function()
+      {
+        if (this.readyState == 4 && this.status == 200) 
+           {
+                let personalityName= document.getElementById("personality").value;
+
+                if(personalityName=="")
+                {
+                    alert("Please Enter Valid Name!");
+                }
+
+                else
+                {
+        
+                let portfolio= JSON.parse(this.responseText);
+
+                //Change the Index of array to change the person
+                let personArray= portfolio.person.length;
+
+                
+
+                for(let x=0; x<personArray; x++)
+                {
+                    if((portfolio.person[x].introduction.name.toLowerCase() == personalityName) || ( portfolio.person[x].introduction.name.toLowerCase().includes(personalityName) ) || (portfolio.person[x].introduction.name.toUpperCase() == personalityName) || (portfolio.person[x].introduction.name.toUpperCase().includes(personalityName) ) || (portfolio.person[x].introduction.name == personalityName))
+                    {
+                        personalityIndex= x;
+                        //sessionStorage.setItem("personalityIndex", personalityIndex);
+
+                        //window.location.href = "mainPortfolio.html";
+                        
+                        var url= "mainPortfolio.html?value=" +personalityIndex;
+                            
+                        window.location.href = url;
+                    }
+
+                    else
+                    {
+                        vall++;;
+                    }
+
+                }
+                if(vall!= 0)
+                {
+                    document.getElementById("notFound").style.display= "block";
+                }
+             }
+        }
+      };
+
+      xhttp.open("GET", "portfolioData.json", true);
+      xhttp.send();
+    }
+
+
+</script>

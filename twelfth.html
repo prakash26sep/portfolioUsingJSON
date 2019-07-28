@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Portfolio</title>
+
+    <!--To link css to this html page-->
+    <link rel="stylesheet" href="css/style.css">
+    
+</head>
+
+<body>
+
+    <header>
+        <div style="font-size: 40px;  color:rgb(114, 90, 31)" class="flex-container">My Portfolio<span style="float: right; margin-left: 950px; padding-bottom:2px;"><button style="width: 100px; height: 40px; " onclick="searchBox()">Search</button></span></div><hr>
+        <div class="flex-container">
+           
+                <div  class="menu"><a  id="mainPortfolio">Introduction</a></div>
+                <div id="education" style="background-color:goldenrod;" class="menu">Education
+                    
+                        <div class="dropdown-content flex-dropdown">
+                                <div class="drop"><a id="university">University</a></div>
+                                <div class="drop"><a id="twelfth">12th</a></div>
+                                <div class="drop"><a id="tenth">10th</a></div>
+                        </div>
+                    
+                </div>
+                <div class="menu"><a id="experience">Experience</a></div>
+                <div class="menu"><a id="contact">Contact</a></div>
+            </ul>
+        </div>
+
+    </header>
+
+
+    <section>
+
+        <div style="margin: 20px 0 20px 0; font-size: 36px">
+            <h2 style="text-align: center; font-size: 42px">Senior Secondary Qualification</h2>
+        </div>
+
+        <div id="intro">
+            <img id="myImage"/>
+            <p id="educationjson" style="text-align: center;">
+            </p>
+        </div>
+
+
+    </section>
+
+    <footer>
+    
+            <div class="flex-container" style="position: fixed; bottom: 0; width: 100%">
+                    <p>Visit me @ www.prakashsolutions.com</p>
+            </div>
+
+    </footer>
+
+</body>
+
+</html>
+
+<script>
+        
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) 
+          {
+
+              let portfolio= JSON.parse(this.responseText);
+
+               //Fetching the value to use in JSON Array from URL
+               const urlParams = new URLSearchParams(window.location.search);
+                const myParam = urlParams.get('value');
+
+              //Change the Index of array to change the person
+              let portfolioPerson= portfolio.person[myParam];
+
+              //Changing the content of the file using the JSON document------->
+
+              //UNIVERSITY PAGE
+              let educationContent= '';
+              educationContent+= '<ul style="float: left; font-size: 27px">';
+
+              for(let i=0; i<portfolioPerson.education.twelfthQualification.length; i++)
+                
+                {
+                    educationContent+= '<li>' +portfolioPerson.education.twelfthQualification[i] +'</li>';
+                }
+                
+                educationContent+= '</ul>';
+              
+                document.getElementById("educationjson").innerHTML= educationContent;
+                document.getElementById("myImage").src = portfolioPerson.education.twelfthImage;
+
+                //Changing the URLS for every page according to the search
+                document.getElementById("mainPortfolio").href= "mainPortfolio.html?value=" +myParam;
+                document.getElementById("university").href= "university.html?value=" +myParam;
+                document.getElementById("twelfth").href= "twelfth.html?value=" +myParam;
+                document.getElementById("tenth").href= "tenth.html?value=" +myParam;
+                document.getElementById("experience").href= "experience.html?value=" +myParam;
+                document.getElementById("contact").href= "contact.html?value=" +myParam;
+
+          }
+        };
+        xhttp.open("GET", "portfolioData.json", true);
+        xhttp.send();
+
+        function searchBox()
+          {
+            window.location.href = "searchPortfolio.html";
+          }
+
+
+</script>
